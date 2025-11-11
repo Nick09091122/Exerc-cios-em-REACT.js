@@ -1,0 +1,27 @@
+import { useState } from 'react';
+import React from 'react';
+import './App.css';
+
+function TextoSecreto() {
+
+  const [visivel, setvisivel] = useState(false);
+
+  const Segredos = ['Planta de bandejões', 'Dinheiro na conta de Hélio', 'Quantidade de dinheiro sonegado'];
+
+  return (
+    <div>
+        <h2> Cofre ultra secreto 💼</h2>
+      <button onClick={() => setvisivel(!visivel)}>
+        {visivel ? 'Fechar cofre' : 'Abrir cofre'} {visivel ? '🔒' : '🔓'}
+      </button>
+      {visivel && <ul><li><img src='https://www.bloonswiki.com/images/4/4e/BTDB2_etienne_portrait.png' style={{width: '126px', height: '126px'}}/></li>
+      {Segredos.map((segredo, index) => (
+        <li key={index}>{segredo}</li>
+      ))}
+      </ul>}
+    </div>
+  );
+
+}
+
+export default TextoSecreto;
